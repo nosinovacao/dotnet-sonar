@@ -8,11 +8,13 @@ This image was built with the following components:
 * Oracle Java 8
 * Mono developer
 * SonarQube MSBuild Scanner 4.0.2
+* Docker binaries 17.06.2
 
 ## Tags
 
-Tags are written using the following pattern: `dotnet-sonar:<dotnet-sdk-version>-<sonarscanner-msbuild-version>`
+Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-sonar:18.03.0
 * dotnet-sonar:2-4.0.2
 
 ## Compiling dotnet code with SonarQube Analysis
