@@ -42,3 +42,8 @@ RUN apt-get update \
         stable" \
     && apt-get update \
     && apt-get install -y docker-ce=$DOCKER_VERSION~ce-0~debian
+
+# Cleanup
+RUN apt-get -q autoremove \
+    && apt-get -q clean -y \
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/*.bin
