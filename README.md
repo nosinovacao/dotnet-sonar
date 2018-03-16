@@ -4,10 +4,9 @@ This is a container used to build dotnet projects and provide SonarQube analysis
 
 This image was built with the following components:
 
-* dotnet-sdk-2 (jessie)
-* Oracle Java 8
-* Mono developer
-* SonarQube MSBuild Scanner 4.0.2
+* dotnet-sdk-2.0 (jessie)
+* OpenJDK Java 8
+* SonarQube MSBuild Scanner 4.1.0.1148
 * Docker binaries 17.06.2
 
 ## Tags
@@ -24,8 +23,8 @@ Based on this guide: <https://docs.sonarqube.org/display/SCAN/Scanning+on+Linux+
 
 ```bash
 docker run -it --rm -v <my-project-source-path>:/source dotnet-sonar bash -c "cd source \
-&& mono /sonar-scanner/SonarQube.Scanner.MSBuild.exe begin /d:sonar.host.url=<sonar-url> /d:sonar.login=login /d:sonar.password=password /k:my-project-key \
+&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /d:sonar.host.url=<sonar-url> /d:sonar.login=login /d:sonar.password=password /k:my-project-key \
 && dotnet restore \
 && dotnet build -c Release \
-&& mono /sonar-scanner/SonarQube.Scanner.MSBuild.exe end /d:sonar.login=login /d:sonar.password=password"
+&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll end /d:sonar.login=login /d:sonar.password=password"
 ```
