@@ -40,7 +40,7 @@ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end
 **Outside container:**
 
 ```bash
-docker run -it --rm -v <my-project-source-path>:/source dotnet-sonar bash -c "cd source \
+docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar:latest bash -c "cd source \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /name:sonarProjectName /version:buildVersion \
 && dotnet restore \
 && dotnet build -c Release \
