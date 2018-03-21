@@ -19,6 +19,8 @@ Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revi
 * dotnet-sonar:18.03.0
 * dotnet-sonar:2-4.0.2
 
+More info on docker hub: <https://hub.docker.com/r/nosinovacao/dotnet-sonar/>
+
 ## Compiling dotnet code with SonarQube Analysis
 
 Full documentation: <https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+MSBuild>
@@ -101,7 +103,7 @@ docker.image('nosinovacao/dotnet-sonar:latest').inside("--group-add docker -v /v
 
 The above code will:
 
-* Ensure add current jenkins user to the Docker group
+* Add current jenkins user to the Docker group
 * Mount the docker socket into the container so that you can control the Docker instance on the host machine
 
 ## Known issues
