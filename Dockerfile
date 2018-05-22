@@ -1,6 +1,6 @@
-FROM microsoft/dotnet:2.0-sdk-jessie
+FROM microsoft/dotnet:2.0.7-sdk-2.1.200-jessie
 
-ENV SONAR_SCANNER_MSBUILD_VERSION 4.1.0.1148
+ENV SONAR_SCANNER_MSBUILD_VERSION 4.2.0.1214
 ENV DOCKER_VERSION 17.06.2
 
 # Install Java 8
