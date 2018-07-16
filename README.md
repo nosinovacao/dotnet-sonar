@@ -15,7 +15,7 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* dotnet-sonar:18.3.2
+* dotnet-sonar:18.03.2
 * dotnet-sonar:18.03.1
 * dotnet-sonar:18.03.0
 * dotnet-sonar:2-4.0.2
