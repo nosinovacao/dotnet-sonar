@@ -6,8 +6,8 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This image was built with the following components:
 
-* dotnet-sdk-2.0 (jessie)
-* SonarQube MSBuild Scanner 4.1.0.1148
+* dotnet-sdk-2.1 (stretch)
+* SonarQube MSBuild Scanner 4.3.1.1372
 * OpenJDK Java 8 (required for Sonar Scanner)
 * Docker binaries 17.06.2 (for running Docker in Docker using the docker.sock mount)
 
@@ -15,6 +15,7 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-sonar:18.3.2
 * dotnet-sonar:18.03.1
 * dotnet-sonar:18.03.0
 * dotnet-sonar:2-4.0.2
