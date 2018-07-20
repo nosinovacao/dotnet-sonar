@@ -37,6 +37,13 @@ dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey
 dotnet build
 dotnet /sonar-scanner/SonarScanner.MSBuild.dll end
 ```
+**Configure external SonarQube Server:**
+
+```bash
+dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /d:sonar.host.url="<SonarQubeServerUrl:Port>" /d:sonar.login="<SonarQubeServerToken>"
+dotnet build
+dotnet /sonar-scanner/SonarScanner.MSBuild.dll end  /d:sonar.login="<SonarQubeServerToken>"
+```
 
 **Outside container:**
 
@@ -47,6 +54,9 @@ docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar
 && dotnet build -c Release \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end"
 ```
+
+
+
 
 ### Using Jenkins pipeline
 
