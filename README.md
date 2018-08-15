@@ -117,6 +117,8 @@ The above code will:
 * Add current jenkins user to the Docker group
 * Mount the docker socket into the container so that you can control the Docker instance on the host machine
 
-## Known issues
+## Code Coverage
 
-Due to dotnet tool limitations, it is not possible to provide a test coverage report **yet**.
+if you want to add code coverage to your analyses please follow this great instructions 
+https://medium.com/@equiman/net-core-unit-test-and-code-coverage-with-visual-studio-code-1a384b462c5f
+
