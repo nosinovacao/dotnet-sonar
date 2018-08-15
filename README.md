@@ -120,5 +120,6 @@ The above code will:
 ## Code Coverage
 
 if you want to add code coverage to your analyses please follow this great instructions 
+
 https://medium.com/@equiman/net-core-unit-test-and-code-coverage-with-visual-studio-code-1a384b462c5f
 
