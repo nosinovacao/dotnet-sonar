@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk
+FROM microsoft/dotnet:2.1.401-sdk
 
 ENV SONAR_SCANNER_MSBUILD_VERSION 4.3.1.1372
 ENV DOCKER_VERSION 17.06.2
