@@ -65,9 +65,11 @@ The following pipeline code will:
 
 * Start a sonar scanning session
 * Build dotnet projects
-* Run tests with coverage analysis and publish them using the Jenkins XUnit publisher
+* Run tests with coverage analysis (using coverlet) and publish them using the Jenkins XUnit publisher
 * End a sonar scanning session
 * [OPTIONAL] In the end, it waits for sonar's quality gate status and sets the build outcome
+
+*Note that in order for coverage analysis to work, you need to add the coverlet NuGet package to the unit test project.*
 
 ```groovy
 node('somenode-with-docker') {
@@ -120,5 +122,6 @@ The above code will:
 
 ## Code Coverage
 
-The above examples already implement the code-coverage analysis.
+The above examples already implement the code-coverage analysis, **provided you add the coverlet NuGet package to your unit test project**.
 If you want to know more, check: <https://medium.com/@equiman/net-core-unit-test-and-code-coverage-with-visual-studio-code-1a384b462c5f>.
+Also, coverlet documentation here: <https://github.com/tonerdo/coverlet/>.
