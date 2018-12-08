@@ -6,10 +6,10 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This image was built with the following components:
 
-* dotnet-sdk-2.1.401 (stretch)
-* SonarQube MSBuild Scanner 4.3.1.1372
+* dotnet-sdk-2.1.403 (stretch)
+* SonarQube MSBuild Scanner 4.4.2.1543
 * OpenJDK Java 8 (required for Sonar Scanner)
-* Docker binaries 17.06.2 (for running Docker in Docker using the docker.sock mount)
+* Docker binaries 18.06.1 (for running Docker in Docker using the docker.sock mount)
 
 ## Tags
 
@@ -55,9 +55,6 @@ docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar
 && dotnet build -c Release \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end"
 ```
-
-
-
 
 ### Using Jenkins pipeline
 
