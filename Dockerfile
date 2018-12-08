@@ -1,7 +1,7 @@
 FROM microsoft/dotnet:2.2.100-sdk
 
 ENV SONAR_SCANNER_MSBUILD_VERSION 4.4.2.1543
-ENV DOCKER_VERSION 17.06.2
+ENV DOCKER_VERSION 18.06.1 # reviewing this choice
 
 # Install Java 8
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openjdk-8-jre
