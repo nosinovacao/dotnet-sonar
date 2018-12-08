@@ -11,6 +11,9 @@ This image was built with the following components:
 * OpenJDK Java 8 (required for Sonar Scanner)
 * Docker binaries 18.06.1 (for running Docker in Docker using the docker.sock mount)
 
+
+[![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
+
 ## Tags
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
