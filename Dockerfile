@@ -23,6 +23,9 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y docker-ce=$DOCKER_VERSION~ce-0~debian
 
+# install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs 
+
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
     && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-netcoreapp2.0.zip \
