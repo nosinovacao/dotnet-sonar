@@ -1,7 +1,7 @@
 FROM microsoft/dotnet:2.2.100-sdk
 
 ENV SONAR_SCANNER_MSBUILD_VERSION 4.4.2.1543
-ENV DOCKER_VERSION 18.06.1 # reviewing this choice
+ENV DOCKER_VERSION 18.06.1~ce~3-0~debian # reviewing this choice
 
 # Install Java 8
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openjdk-8-jre
@@ -21,7 +21,7 @@ RUN apt-get update \
         $(lsb_release -cs) \
         stable" \
     && apt-get update \
-    && apt-get install -y docker-ce=$DOCKER_VERSION~ce-0~debian
+    && apt-get install -y docker-ce=$DOCKER_VERSION
 
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs 
