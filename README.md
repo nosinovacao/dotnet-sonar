@@ -6,11 +6,11 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This image was built with the following components:
 
-* dotnet-sdk-2.2.100 (stretch)
-* SonarQube MSBuild Scanner 4.4.2.1543
+* dotnet-sdk-2.2.103 (stretch)
+* SonarQube MSBuild Scanner 4.5.0.1761
 * OpenJDK Java 8 (required for Sonar Scanner)
 * Docker binaries 18.06.1 (for running Docker in Docker using the docker.sock mount)
-
+* nodejs 11
 
 [![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
 
@@ -18,6 +18,8 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-sonar:19.01.0
+* dotnet-sonar:18.12.1
 * dotnet-sonar:18.09.0
 * dotnet-sonar:18.07.0
 * dotnet-sonar:18.03.1
