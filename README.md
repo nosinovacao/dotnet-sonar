@@ -125,5 +125,7 @@ The above code will:
 ## Code Coverage
 
 The above examples already implement the code-coverage analysis, **provided you add the coverlet NuGet package to your unit test project**.
-If you want to know more, check: <https://medium.com/@equiman/net-core-unit-test-and-code-coverage-with-visual-studio-code-1a384b462c5f>.
+
+If you want to know more, check: <https://dev.to/deinsoftware/net-core-unit-test-and-code-coverage-with-visual-studio-code-37bp>.
+
 Also, coverlet documentation here: <https://github.com/tonerdo/coverlet/>.
