@@ -23,7 +23,7 @@ RUN apt-get install -y \
         $(lsb_release -cs) \
         stable" \
     && apt-get update \
-    && apt-get install -y docker-ce=$DOCKER_VERSION docker-ce-cli=${DOCKER_VERSION} containerd.io=${CONTAINERD_VERSION}
+    && apt-get install -y docker-ce=$DOCKER_VERSION docker-ce-cli=$DOCKER_VERSION containerd.io=$CONTAINERD_VERSION
 
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs autoconf libtool nasm
