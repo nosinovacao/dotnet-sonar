@@ -6,10 +6,10 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This image was built with the following components:
 
-* dotnet-sdk-2.2.103 (stretch)
-* SonarQube MSBuild Scanner 4.5.0.1761
+* dotnet-sdk-2.2.401 (stretch)
+* SonarQube MSBuild Scanner 4.6.2.2108
 * OpenJDK Java 8 (required for Sonar Scanner)
-* Docker binaries 18.06.1 (for running Docker in Docker using the docker.sock mount)
+* Docker binaries 19.03.1 (for running Docker in Docker using the docker.sock mount)
 * nodejs 11
 
 [![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
@@ -18,6 +18,7 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-sonar:19.08.0
 * dotnet-sonar:19.01.0
 * dotnet-sonar:18.12.1
 * dotnet-sonar:18.09.0
@@ -53,6 +54,7 @@ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end  /d:sonar.login="<SonarQubeSe
 
 **Outside container:**
 
+Simple Usage:
 ```bash
 docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar:latest bash -c "cd source \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /name:sonarProjectName /version:buildVersion \
@@ -60,6 +62,40 @@ docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar
 && dotnet build -c Release \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end"
 ```
+
+Advance Usage:
+
+```bash
+docker run -it --rm \
+-v <my-project-source-path>:/source \
+-v <my-nugetconfig-source-path>:/nuget \
+dotnet-sonar:19.08.0 \
+bash -c \
+"cd source \
+&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
+/k:<ProjectName> /name:<my-project-name> /version:<my-project-version> \
+/d:sonar.host.url="<my-sonar-server-url>" \
+/d:sonar.login="<my-sonar-server-user>" \
+/d:sonar.password="<my-sonar-server-pass>" \
+/d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml' \
+&& dotnet restore --configfile /nuget/NuGet.Config \
+&& dotnet build -c Release \
+&& dotnet publish -c Release -r linux-x64 -o deployment \
+&& dotnet test --no-build -c Release --filter "Category=Unit" --logger trx --results-directory testResults /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover\" \
+&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll end \
+/d:sonar.login="<my-sonar-server-user>" \
+/d:sonar.password="<my-sonar-server-pass>""
+```
+
+The script above does the following:
+* Mounts your project folder to the container's /source folder
+* Mounts your nuget config to the container's /nuget folder (optional if no private nuget server is used)
+* Begins the sonarscanner with the sonarqube server credentials
+* Performs a dotnet restore with the nuget config in /nuget folder
+* Executes the build command
+* Publishes the build to the deployment folder
+* Runs the tests and stores the test results in testResults folder. Change this command to your unit tests needs
+* Ends the sonarscanner and publishes the sonarqube analysis results to the sonarqube server
 
 ### Using Jenkins pipeline
 
