@@ -1,8 +1,11 @@
-FROM microsoft/dotnet:2.2.103-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2.401
 
-ENV SONAR_SCANNER_MSBUILD_VERSION 4.5.0.1761
 # reviewing this choice
-ENV DOCKER_VERSION 18.06.1~ce~3-0~debian
+ENV SONAR_SCANNER_MSBUILD_VERSION 4.6.2.2108
+
+ENV DOCKER_VERSION 5:19.03.1~3-0~debian-stretch
+ENV CONTAINERD_VERSION 1.2.6-3
+
 # Install Java 8
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openjdk-8-jre
 
@@ -20,7 +23,7 @@ RUN apt-get install -y \
         $(lsb_release -cs) \
         stable" \
     && apt-get update \
-    && apt-get install -y docker-ce=$DOCKER_VERSION
+    && apt-get install -y docker-ce=$DOCKER_VERSION docker-ce-cli=$DOCKER_VERSION containerd.io=$CONTAINERD_VERSION
 
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs autoconf libtool nasm
