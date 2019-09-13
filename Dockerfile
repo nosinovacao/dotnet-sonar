@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2.401
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2.402
 
 # reviewing this choice
-ENV SONAR_SCANNER_MSBUILD_VERSION 4.6.2.2108
+ENV SONAR_SCANNER_MSBUILD_VERSION 4.7.1.2311
 
-ENV DOCKER_VERSION 5:19.03.1~3-0~debian-stretch
+ENV DOCKER_VERSION 5:19.03.2~3-0~debian-stretch
 ENV CONTAINERD_VERSION 1.2.6-3
 
 # Install Java 8

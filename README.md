@@ -4,10 +4,11 @@ This is a container used to build dotnet projects and provide SonarQube analysis
 
 It also allows you to run Docker in Docker using a docker.sock mount.
 
+----
 This image was built with the following components:
 
-* dotnet-sdk-2.2.401 (stretch)
-* SonarQube MSBuild Scanner 4.6.2.2108
+* dotnet-sdk-2.2.402 (stretch)
+* SonarQube MSBuild Scanner 4.7.1.2311
 * OpenJDK Java 8 (required for Sonar Scanner)
 * Docker binaries 19.03.1 (for running Docker in Docker using the docker.sock mount)
 * nodejs 11
@@ -18,6 +19,7 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-sonar:19.09.0
 * dotnet-sonar:19.08.0
 * dotnet-sonar:19.01.0
 * dotnet-sonar:18.12.1
