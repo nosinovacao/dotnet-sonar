@@ -71,7 +71,7 @@ Advance Usage:
 docker run -it --rm \
 -v <my-project-source-path>:/source \
 -v <my-nugetconfig-source-path>:/nuget \
-dotnet-sonar:19.08.0 \
+dotnet-sonar:19.09.0 \
 bash -c \
 "cd source \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
