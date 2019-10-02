@@ -5,13 +5,13 @@ This is a container used to build dotnet projects and provide SonarQube analysis
 It also allows you to run Docker in Docker using a docker.sock mount.
 
 ----
-This image was built with the following components:
+This latest image was built with the following components:
 
-* dotnet-sdk-2.2.402 (stretch)
+* dotnet-sdk-3.0.100
 * SonarQube MSBuild Scanner 4.7.1.2311
-* OpenJDK Java 8 (required for Sonar Scanner)
+* OpenJDK Java 11 (required by Sonar Scanner)
 * Docker binaries 19.03.1 (for running Docker in Docker using the docker.sock mount)
-* nodejs 11
+* NodeJS 11
 
 [![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
 
@@ -19,15 +19,50 @@ This image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* dotnet-soanr:19.10.0
+    * With:
+        * DotNetCore SDK 3.0.100
+        * SonarScanner 4.7.1.2311
 * dotnet-sonar:19.09.0
+    * With:
+        * DotNetCore SDK 2.2.402
+        * SonarScanner 4.7.1.2311
 * dotnet-sonar:19.08.0
+    * With:
+        * DotNetCore SDK 2.2.401
+        * SonarScanner 4.6.2.2108
 * dotnet-sonar:19.01.0
+    * With:
+        * DotNetCore SDK 2.2.103
+        * SonarScanner 4.5.0.1761
 * dotnet-sonar:18.12.1
+    * With:
+        * DotNetCore SDK 2.2.100
+        * SonarScanner 4.4.2.1543
 * dotnet-sonar:18.09.0
+    * With:
+        * DotNetCore SDK 2.1.401
+        * SonarScanner 4.3.1.1372
 * dotnet-sonar:18.07.0
+    * With:
+        * DotNetCore SDK 2.1
+        * SonarScanner 4.3.1.1372
+* dotnet-sonar:18.05.0
+    * With:
+        * DotNetCore SDK 2.0.7
+        * SonarScanner 4.2.0.1214
 * dotnet-sonar:18.03.1
+    * With:
+        * DotNetCore SDK 2.0
+        * SonarScanner 4.1.0.1148
 * dotnet-sonar:18.03.0
+    * With:
+        * DotNetCore SDK 2.0
+        * SonarScanner 4.0.2.892
 * dotnet-sonar:2-4.0.2
+    * With:
+        * DotNetCore SDK 2
+        * SonarScanner 4.0.2.892
 
 More info on docker hub: <https://hub.docker.com/r/nosinovacao/dotnet-sonar/>
 
@@ -71,7 +106,7 @@ Advance Usage:
 docker run -it --rm \
 -v <my-project-source-path>:/source \
 -v <my-nugetconfig-source-path>:/nuget \
-dotnet-sonar:19.09.0 \
+dotnet-sonar:19.10.0 \
 bash -c \
 "cd source \
 && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \

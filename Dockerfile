@@ -1,20 +1,21 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2.402
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100
 
 # reviewing this choice
 ENV SONAR_SCANNER_MSBUILD_VERSION 4.7.1.2311
 
-ENV DOCKER_VERSION 5:19.03.2~3-0~debian-stretch
+ENV DOCKER_VERSION 5:19.03.2~3-0~debian-buster
 ENV CONTAINERD_VERSION 1.2.6-3
 
-# Install Java 8
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openjdk-8-jre
+RUN apt-get update \
+    && apt-get dist-upgrade -y
 
-# Install docker binaries
+# Install all necessary additional software (utils, jre, docker binaries)
 RUN apt-get install -y \
+        openjdk-11-jre \
         apt-transport-https \
         ca-certificates \
         curl \
-        gnupg2 \
+        gnupg-agent \
         software-properties-common \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
     && apt-key fingerprint 0EBFCD88 \
@@ -23,10 +24,18 @@ RUN apt-get install -y \
         $(lsb_release -cs) \
         stable" \
     && apt-get update \
-    && apt-get install -y docker-ce=$DOCKER_VERSION docker-ce-cli=$DOCKER_VERSION containerd.io=$CONTAINERD_VERSION
+    && apt-get install -y \
+        docker-ce=$DOCKER_VERSION \
+        docker-ce-cli=$DOCKER_VERSION \
+        containerd.io=$CONTAINERD_VERSION
 
 # install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs autoconf libtool nasm
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+    && apt-get install -y \
+        nodejs \
+        autoconf \
+        libtool \
+        nasm
 
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
