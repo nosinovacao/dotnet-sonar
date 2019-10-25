@@ -19,7 +19,7 @@ This latest image was built with the following components:
 
 Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* dotnet-soanr:19.10.0
+* dotnet-sonar:19.10.0
     * With:
         * DotNetCore SDK 3.0.100
         * SonarScanner 4.7.1.2311
