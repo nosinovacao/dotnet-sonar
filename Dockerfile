@@ -1,10 +1,15 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100
 
-# reviewing this choice
-ENV SONAR_SCANNER_MSBUILD_VERSION 4.7.1.2311
+# Dockerfile meta-information
+LABEL maintainer="NOS Inovação S.A." \
+    app_name="dotnet-sonar"
 
-ENV DOCKER_VERSION 5:19.03.2~3-0~debian-buster
-ENV CONTAINERD_VERSION 1.2.6-3
+# Reviewing this choices
+ENV SONAR_SCANNER_MSBUILD_VERSION=4.7.1.2311 \
+    DOTNETCORE_SDK=3.0.100 \
+    DOTNETCORE_RUNTIME=2.2.7 \
+    DOCKER_VERSION=5:19.03.2~3-0~debian-buster \
+    CONTAINERD_VERSION=1.2.6-3
 
 RUN apt-get update \
     && apt-get dist-upgrade -y
@@ -37,6 +42,16 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
         libtool \
         nasm
 
+# Register Microsoft key and feed
+RUN wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb
+
+# Install DotNetCore 2.1 Runtime-Only for SonarScanner
+RUN apt-get update -y \
+    && apt-get install apt-transport-https -y \
+    && apt-get update -y \
+    && apt-get install aspnetcore-runtime-2.2 -y
+
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
     && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-netcoreapp2.0.zip \
@@ -48,3 +63,4 @@ RUN apt-get install -y unzip \
 RUN apt-get -q autoremove \
     && apt-get -q clean -y \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*.bin
+

@@ -7,62 +7,52 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 ----
 This latest image was built with the following components:
 
-* dotnet-sdk-3.0.100
+* dotnetcore-sdk-3.0.100
+* dotnetcore-runtime-2.2.7 (required by Sonar Scanner)
 * SonarQube MSBuild Scanner 4.7.1.2311
-* OpenJDK Java 11 (required by Sonar Scanner)
+* OpenJDK Java Runtime 11 (required by Sonar Scanner)
 * Docker binaries 19.03.1 (for running Docker in Docker using the docker.sock mount)
 * NodeJS 11
 
 [![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
 
-## Tags
+## Supported tags and respective `Dockerfile` links
 
-Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
+> Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* dotnet-sonar:19.10.0
-    * With:
-        * DotNetCore SDK 3.0.100
-        * SonarScanner 4.7.1.2311
-* dotnet-sonar:19.09.0
-    * With:
-        * DotNetCore SDK 2.2.402
-        * SonarScanner 4.7.1.2311
-* dotnet-sonar:19.08.0
-    * With:
-        * DotNetCore SDK 2.2.401
-        * SonarScanner 4.6.2.2108
-* dotnet-sonar:19.01.0
-    * With:
-        * DotNetCore SDK 2.2.103
-        * SonarScanner 4.5.0.1761
-* dotnet-sonar:18.12.1
-    * With:
-        * DotNetCore SDK 2.2.100
-        * SonarScanner 4.4.2.1543
-* dotnet-sonar:18.09.0
-    * With:
-        * DotNetCore SDK 2.1.401
-        * SonarScanner 4.3.1.1372
-* dotnet-sonar:18.07.0
-    * With:
-        * DotNetCore SDK 2.1
-        * SonarScanner 4.3.1.1372
-* dotnet-sonar:18.05.0
-    * With:
-        * DotNetCore SDK 2.0.7
-        * SonarScanner 4.2.0.1214
-* dotnet-sonar:18.03.1
-    * With:
-        * DotNetCore SDK 2.0
-        * SonarScanner 4.1.0.1148
-* dotnet-sonar:18.03.0
-    * With:
-        * DotNetCore SDK 2.0
-        * SonarScanner 4.0.2.892
-* dotnet-sonar:2-4.0.2
-    * With:
-        * DotNetCore SDK 2
-        * SonarScanner 4.0.2.892
+* `19.10.1`, `latest` [(19.10.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.10.1/Dockerfile)
+    * DotNetCore SDK 3.0.100
+    * SonarScanner 4.7.1.2311
+* `19.09.0` [(19.09-0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.09.0/Dockerfile)
+    * DotNetCore SDK 2.2.402
+    * SonarScanner 4.7.1.2311
+* `19.08.0` [(19.08.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.08.0/Dockerfile)
+    * DotNetCore SDK 2.2.401
+    * SonarScanner 4.6.2.2108
+* `19.01.0` [(19.01.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.01.0/Dockerfile)
+    * DotNetCore SDK 2.2.103
+    * SonarScanner 4.5.0.1761
+* `18.12.1` [(18.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.12.1/Dockerfile)
+    * DotNetCore SDK 2.2.100
+    * SonarScanner 4.4.2.1543
+* `18.09.0` [(18.09.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.09.0/Dockerfile)
+    * DotNetCore SDK 2.1.401
+    * SonarScanner 4.3.1.1372
+* `18.07.0` [(18.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.07.0/Dockerfile)
+    * DotNetCore SDK 2.1
+    * SonarScanner 4.3.1.1372
+* `18.05.0` [(18.05.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.05.0/Dockerfile)
+    * DotNetCore SDK 2.0.7
+    * SonarScanner 4.2.0.1214
+* `18.03.1` [(18.03.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.03.1/Dockerfile)
+    * DotNetCore SDK 2.0
+    * SonarScanner 4.1.0.1148
+* `18.03.0` [(18.03.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.03.0/Dockerfile)
+    * DotNetCore SDK 2.0
+    * SonarScanner 4.0.2.892
+* `2-4.0.2` [(2-4.0.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/2-4.0.2/Dockerfile)
+    * DotNetCore SDK 2
+    * SonarScanner 4.0.2.892
 
 More info on docker hub: <https://hub.docker.com/r/nosinovacao/dotnet-sonar/>
 
@@ -77,54 +67,55 @@ Full documentation: <https://docs.sonarqube.org/display/SCAN/Analyzing+with+Sona
 **Inside container:**
 
 ```bash
-dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey
-dotnet build
-dotnet /sonar-scanner/SonarScanner.MSBuild.dll end
+$ dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey
+$ dotnet build
+$ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end
 ```
 **Configure external SonarQube Server:**
 
 ```bash
-dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /d:sonar.host.url="<SonarQubeServerUrl:Port>" /d:sonar.login="<SonarQubeServerToken>"
-dotnet build
-dotnet /sonar-scanner/SonarScanner.MSBuild.dll end  /d:sonar.login="<SonarQubeServerToken>"
+$ dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /d:sonar.host.url="<SonarQubeServerUrl:Port>" /d:sonar.login="<SonarQubeServerToken>"
+$ dotnet build
+$ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end  /d:sonar.login="<SonarQubeServerToken>"
 ```
 
 **Outside container:**
 
 Simple Usage:
 ```bash
-docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar:latest bash -c "cd source \
-&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /name:sonarProjectName /version:buildVersion \
-&& dotnet restore \
-&& dotnet build -c Release \
-&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll end"
+$ docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar:latest bash -c "cd source \
+    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /name:sonarProjectName /version:buildVersion \
+    && dotnet restore \
+    && dotnet build -c Release \
+    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end"
 ```
 
 Advance Usage:
 
 ```bash
-docker run -it --rm \
--v <my-project-source-path>:/source \
--v <my-nugetconfig-source-path>:/nuget \
-dotnet-sonar:19.10.0 \
-bash -c \
-"cd source \
-&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
-/k:<ProjectName> /name:<my-project-name> /version:<my-project-version> \
-/d:sonar.host.url="<my-sonar-server-url>" \
-/d:sonar.login="<my-sonar-server-user>" \
-/d:sonar.password="<my-sonar-server-pass>" \
-/d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml' \
-&& dotnet restore --configfile /nuget/NuGet.Config \
-&& dotnet build -c Release \
-&& dotnet publish -c Release -r linux-x64 -o deployment \
-&& dotnet test --no-build -c Release --filter "Category=Unit" --logger trx --results-directory testResults /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover\" \
-&& dotnet /sonar-scanner/SonarScanner.MSBuild.dll end \
-/d:sonar.login="<my-sonar-server-user>" \
-/d:sonar.password="<my-sonar-server-pass>""
+$ docker run -it --rm \
+    -v <my-project-source-path>:/source \
+    -v <my-nugetconfig-source-path>:/nuget \
+$ dotnet-sonar:19.10.1 \
+$ bash -c \
+    "cd source \
+    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
+    /k:<ProjectName> /name:<my-project-name> /version:<my-project-version> \
+    /d:sonar.host.url="<my-sonar-server-url>" \
+    /d:sonar.login="<my-sonar-server-user>" \
+    /d:sonar.password="<my-sonar-server-pass>" \
+    /d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml' \
+    && dotnet restore --configfile /nuget/NuGet.Config \
+    && dotnet build -c Release \
+    && dotnet publish -c Release -r linux-x64 -o deployment \
+    && dotnet test --no-build -c Release --filter "Category=Unit" --logger trx --results-directory testResults /p:CollectCoverage=true /    p:CoverletOutputFormat=\"opencover\" \
+    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end \
+    /d:sonar.login="<my-sonar-server-user>" \
+    /d:sonar.password="<my-sonar-server-pass>""
 ```
 
 The script above does the following:
+
 * Mounts your project folder to the container's /source folder
 * Mounts your nuget config to the container's /nuget folder (optional if no private nuget server is used)
 * Begins the sonarscanner with the sonarqube server credentials
@@ -147,11 +138,21 @@ The following pipeline code will:
 *Note that in order for coverage analysis to work, you need to add the coverlet NuGet package to the unit test project.*
 
 ```groovy
-node('somenode-with-docker') {
-    withSonarQubeEnv('my-jenkins-configured-sonar-environment') {
-        docker.image('nosinovacao/dotnet-sonar:latest').inside() {
-            withEnv(['HOME=/tmp/home','DOTNET_CLI_TELEMETRY_OPTOUT=1']) {
-                stage('build') {
+def envVariables = [
+    'HOME=/tmp/home',
+    'DOTNET_CLI_TELEMETRY_OPTOUT=1'
+]
+
+node('somenode-with-docker')
+{
+    withSonarQubeEnv('my-jenkins-configured-sonar-environment')
+    {
+        docker.image('nosinovacao/dotnet-sonar:latest').inside()
+        {
+            withEnv(envVariables)
+            {
+                stage('build')
+                {
                     checkout scm
                     sh "dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:someKey /name:someName /version:someVersion /d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml'"
                     sh "dotnet build -c Release /property:Version=someVersion"
@@ -167,9 +168,11 @@ node('somenode-with-docker') {
     }
 }
 
-timeout(time: 1, unit: 'HOURS') {
+timeout(time: 1, unit: 'HOURS')
+{
     def qualityGate = waitForQualityGate()
-    if (qualityGate.status == 'ERROR') {
+    if (qualityGate.status == 'ERROR')
+    {
         currentBuild.result = 'UNSTABLE'
     }
 }
@@ -182,9 +185,11 @@ Please note that if you want to use Docker inside Docker (DinD) you need to perf
 **The following actions will expose your host to several security vulnerabilities** and therefore this should only be used when you absolutely must to:
 
 ```groovy
-docker.image('nosinovacao/dotnet-sonar:latest').inside("--group-add docker -v /var/run/docker.sock:/var/run/docker.sock") {
+docker.image('nosinovacao/dotnet-sonar:latest').inside("--group-add docker -v /var/run/docker.sock:/var/run/docker.sock")
+{
     // Some stuff
-    docker.image.('hello-world:latest').inside() {
+    docker.image.('hello-world:latest').inside()
+    {
         sh "echo 'hello from docker inside docker'"
     }
 }
