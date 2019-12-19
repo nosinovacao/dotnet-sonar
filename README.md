@@ -21,41 +21,17 @@ This latest image was built with the following components:
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
 * `19.12.1`, `latest` [(19.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.12.1/Dockerfile)
-    * DotNetCore SDK 3.1.100
-    * SonarScanner 4.8.0.12008
 * `19.10.1` [(19.10.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.10.1/Dockerfile)
-    * DotNetCore SDK 3.0.100
-    * SonarScanner 4.7.1.2311
 * `19.09.0` [(19.09-0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.09.0/Dockerfile)
-    * DotNetCore SDK 2.2.402
-    * SonarScanner 4.7.1.2311
 * `19.08.0` [(19.08.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.08.0/Dockerfile)
-    * DotNetCore SDK 2.2.401
-    * SonarScanner 4.6.2.2108
 * `19.01.0` [(19.01.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.01.0/Dockerfile)
-    * DotNetCore SDK 2.2.103
-    * SonarScanner 4.5.0.1761
 * `18.12.1` [(18.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.12.1/Dockerfile)
-    * DotNetCore SDK 2.2.100
-    * SonarScanner 4.4.2.1543
 * `18.09.0` [(18.09.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.09.0/Dockerfile)
-    * DotNetCore SDK 2.1.401
-    * SonarScanner 4.3.1.1372
 * `18.07.0` [(18.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.07.0/Dockerfile)
-    * DotNetCore SDK 2.1
-    * SonarScanner 4.3.1.1372
 * `18.05.0` [(18.05.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.05.0/Dockerfile)
-    * DotNetCore SDK 2.0.7
-    * SonarScanner 4.2.0.1214
 * `18.03.1` [(18.03.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.03.1/Dockerfile)
-    * DotNetCore SDK 2.0
-    * SonarScanner 4.1.0.1148
 * `18.03.0` [(18.03.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.03.0/Dockerfile)
-    * DotNetCore SDK 2.0
-    * SonarScanner 4.0.2.892
 * `2-4.0.2` [(2-4.0.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/2-4.0.2/Dockerfile)
-    * DotNetCore SDK 2
-    * SonarScanner 4.0.2.892
 
 More info on docker hub: <https://hub.docker.com/r/nosinovacao/dotnet-sonar/>
 
@@ -74,6 +50,7 @@ $ dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey
 $ dotnet build
 $ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end
 ```
+
 **Configure external SonarQube Server:**
 
 ```bash
