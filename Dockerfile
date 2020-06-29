@@ -5,7 +5,7 @@ LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 # Reviewing this choices
-ENV SONAR_SCANNER_MSBUILD_VERSION=4.8.0.12008 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=4.10.0.19059 \
     DOTNETCORE_SDK=3.1.301 \
     DOTNETCORE_RUNTIME=3.1.5 \
     DOCKER_VERSION=5:19.03.2~3-0~debian-buster \
