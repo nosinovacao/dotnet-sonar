@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.301
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
@@ -6,8 +6,8 @@ LABEL maintainer="NOS Inovação S.A." \
 
 # Reviewing this choices
 ENV SONAR_SCANNER_MSBUILD_VERSION=4.8.0.12008 \
-    DOTNETCORE_SDK=3.1.100 \
-    DOTNETCORE_RUNTIME=3.1.0 \
+    DOTNETCORE_SDK=3.1.301 \
+    DOTNETCORE_RUNTIME=3.1.5 \
     DOCKER_VERSION=5:19.03.2~3-0~debian-buster \
     CONTAINERD_VERSION=1.2.6-3
 
