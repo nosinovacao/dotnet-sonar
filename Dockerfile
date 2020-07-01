@@ -1,13 +1,13 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.301
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 # Reviewing this choices
-ENV SONAR_SCANNER_MSBUILD_VERSION=4.8.0.12008 \
-    DOTNETCORE_SDK=3.1.100 \
-    DOTNETCORE_RUNTIME=3.1.0 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=4.10.0.19059 \
+    DOTNETCORE_SDK=3.1.301 \
+    DOTNETCORE_RUNTIME=3.1.5 \
     DOCKER_VERSION=5:19.03.2~3-0~debian-buster \
     CONTAINERD_VERSION=1.2.6-3
 
@@ -35,7 +35,7 @@ RUN apt-get install -y \
         containerd.io=$CONTAINERD_VERSION
 
 # install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get install -y \
         nodejs \
         autoconf \
