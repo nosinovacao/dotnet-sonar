@@ -8,8 +8,8 @@ LABEL maintainer="NOS Inovação S.A." \
 ENV SONAR_SCANNER_MSBUILD_VERSION=4.10.0.19059 \
     DOTNETCORE_SDK=3.1.301 \
     DOTNETCORE_RUNTIME=3.1.5 \
-    DOCKER_VERSION=5:19.03.2~3-0~debian-buster \
-    CONTAINERD_VERSION=1.2.6-3
+    DOCKER_VERSION=5:19.03.12~3-0~debian-buster \
+    CONTAINERD_VERSION=1.2.13-2
 
 RUN apt-get update \
     && apt-get dist-upgrade -y

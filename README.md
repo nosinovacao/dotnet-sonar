@@ -1,26 +1,34 @@
 # dotnet-sonar
 
+[![Docker Cloud Status](https://img.shields.io/docker/cloud/automated/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
+
+[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=semver)](dotnet-sonar)
+[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=date)](dotnet-sonar)
+
 This is a container used to build dotnet projects and provide SonarQube analysis using SonarQube MSBuild Scanner.
 
 It also allows you to run Docker in Docker using a docker.sock mount.
 
 ----
+
 This latest image was built with the following components:
 
-* dotnetcore-sdk-3.1.100
-* dotnetcore-runtime-3.1.100 (required by Sonar Scanner)
-* SonarQube MSBuild Scanner 4.8.0.12008
-* OpenJDK Java Runtime 11 (required by Sonar Scanner)
-* Docker binaries 19.03.1 (for running Docker in Docker using the docker.sock mount)
-* NodeJS 11
+* dotnetcore-sdk-3.1.301
+* dotnetcore-runtime-3.1.301 (required by Sonar Scanner)
+* SonarQube MSBuild Scanner 4.10.x
+* OpenJDK Java Runtime 11.x (required by Sonar Scanner)
+* Docker binaries 19.03.x (for running Docker in Docker using the docker.sock mount)
+* NodeJS 12.x
 
-[![Docker Build Status](https://img.shields.io/docker/build/nosinovacao/dotnet-sonar.svg)](dotnet-sonar)
 
 ## Supported tags and respective `Dockerfile` links
 
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* `19.12.0`, `latest` [(19.12.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.12.0/Dockerfile)
+* `20.07.0`, `latest` [(20.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/master/Dockerfile)
+* `19.12.0` [(19.12.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.12.0/Dockerfile)
 * `19.10.1` [(19.10.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.10.1/Dockerfile)
 * `19.09.0` [(19.09-0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.09.0/Dockerfile)
 * `19.08.0` [(19.08.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.08.0/Dockerfile)
