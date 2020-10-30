@@ -1,16 +1,16 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2.207
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.403
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=4.10.0.19059 \
-    DOTNETCORE_SDK=2.2.207 \
-    DOTNETCORE_RUNTIME=2.2.8 \
-    NETCOREAPP_VERSION=netcoreapp2.0 \
-    DOCKER_VERSION=5:19.03.2~3-0~debian-stretch \
+    DOTNETCORE_SDK=3.1.403 \
+    DOTNETCORE_RUNTIME=3.1.9 \
+    NETCOREAPP_VERSION=netcoreapp3.0 \
+    DOCKER_VERSION=5:19.03.12~3-0~debian-buster \
     CONTAINERD_VERSION=1.2.13-2 \
-    OPENJDK_VERSION=8
+    OPENJDK_VERSION=11
 
 # Linux update
 RUN apt-get update \
