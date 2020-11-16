@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0
 
 # Dockerfile meta-information
-LABEL maintainer="Ludovic BONNET" \
+LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar-50"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=5.0.3.23901 \
