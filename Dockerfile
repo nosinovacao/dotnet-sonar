@@ -1,13 +1,13 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.403
+FROM mcr.microsoft.com/dotnet/sdk:5.0
 
 # Dockerfile meta-information
-LABEL maintainer="NOS Inovação S.A." \
-    app_name="dotnet-sonar"
+LABEL maintainer="Ludovic BONNET" \
+    app_name="dotnet-sonar-50"
 
-ENV SONAR_SCANNER_MSBUILD_VERSION=4.10.0.19059 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=5.0.3.23901 \
     DOTNETCORE_SDK=3.1.403 \
-    DOTNETCORE_RUNTIME=3.1.9 \
-    NETCOREAPP_VERSION=netcoreapp3.0 \
+    DOTNETCORE_RUNTIME=5.0 \
+    NETCOREAPP_VERSION=net5.0 \
     DOCKER_VERSION=5:19.03.12~3-0~debian-buster \
     CONTAINERD_VERSION=1.2.13-2 \
     OPENJDK_VERSION=11
@@ -21,6 +21,8 @@ RUN apt-get update \
         curl \
         gnupg-agent \
         software-properties-common
+		
+RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1
 
 # Install Java
 RUN apt-get install -y openjdk-$OPENJDK_VERSION-jre
@@ -37,7 +39,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
         docker-ce=$DOCKER_VERSION \
         docker-ce-cli=$DOCKER_VERSION \
         containerd.io=$CONTAINERD_VERSION
-
+		
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
     && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETCOREAPP_VERSION.zip \
