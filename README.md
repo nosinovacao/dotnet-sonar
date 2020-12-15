@@ -15,23 +15,28 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This latest image was built with the following components:
 
-* dotnetcore-sdk-3.1.403
-* dotnetcore-runtime-3.1.9 (required by Sonar Scanner)
-* SonarQube MSBuild Scanner 4.10.0
-* OpenJDK Java Runtime 11 (required by Sonar Scanner)
+* dotnetcore-sdk-5.0.101
+* dotnetcore-runtime-5.0.1 (required by Sonar-Scanner)
+* SonarQube MSBuild Scanner 5.0.4.24009
 * Docker binaries 19.03.x (for running Docker in Docker using the docker.sock mount)
-
+* OpenJDK Java Runtime 11 (required by Sonar-Scanner)
+* NodeJS 15 (required by Sonar-Scanner web analysis plugins)
 
 ## Supported tags and respective `Dockerfile` links
 
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
+* `20.12.2`, `latest` [(20.12.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.2/Dockerfile)
+  * DotNet 5.0.101
+  * SonarScanner 5.0.4.24009
+* `20.12.1` [(20.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.1/Dockerfile)
+  * DotNetCore 3.1.404
+  * SonarScanner 5.0.4.24009
+* `20.12.0` [(20.12.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.0/Dockerfile)
+  * DotNetCore 2.2.402
+  * SonarScanner 5.0.4.24009
 * `20.10.1`, `latest` [(20.10.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.10.1/Dockerfile)
-  * DotNetCore 3.1.403
-  * SonarScanner 4.10.0.19059
 * `20.10.0` [(20.10.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.10.0/Dockerfile)
-  * DotNetCore 2.2.207
-  * SonarScanner 4.10.0.19059
 * `20.07.0` [(20.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.07.0/Dockerfile)
 * `19.12.0` [(19.12.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.12.0/Dockerfile)
 * `19.10.1` [(19.10.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/19.10.1/Dockerfile)
@@ -89,22 +94,22 @@ Advance Usage:
 $ docker run -it --rm \
     -v <my-project-source-path>:/source \
     -v <my-nugetconfig-source-path>:/nuget \
-$ dotnet-sonar:20.10.1 \
-$ bash -c \
-    "cd source \
-    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
-    /k:<ProjectName> /name:<my-project-name> /version:<my-project-version> \
-    /d:sonar.host.url="<my-sonar-server-url>" \
-    /d:sonar.login="<my-sonar-server-user>" \
-    /d:sonar.password="<my-sonar-server-pass>" \
-    /d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml' \
-    && dotnet restore --configfile /nuget/NuGet.Config \
-    && dotnet build -c Release \
-    && dotnet publish -c Release -r linux-x64 -o deployment \
-    && dotnet test --no-build -c Release --filter "Category=Unit" --logger trx --results-directory testResults /p:CollectCoverage=true /    p:CoverletOutputFormat=\"opencover\" \
-    && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end \
-    /d:sonar.login="<my-sonar-server-user>" \
-    /d:sonar.password="<my-sonar-server-pass>""
+    dotnet-sonar:latest \
+    bash -c \
+        "cd source \
+        && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin \
+        /k:<ProjectName> /name:<my-project-name> /version:<my-project-version> \
+        /d:sonar.host.url="<my-sonar-server-url>" \
+        /d:sonar.login="<my-sonar-server-user>" \
+        /d:sonar.password="<my-sonar-server-pass>" \
+        /d:sonar.cs.opencover.reportsPaths='tests/**/coverage.opencover.xml' \
+        && dotnet restore --configfile /nuget/NuGet.Config \
+        && dotnet build -c Release \
+        && dotnet publish -c Release -r linux-x64 -o deployment \
+        && dotnet test --no-build -c Release --filter "Category=Unit" --logger trx --results-directory testResults /p:CollectCoverage=true /    p:CoverletOutputFormat=\"opencover\" \
+        && dotnet /sonar-scanner/SonarScanner.MSBuild.dll end \
+        /d:sonar.login="<my-sonar-server-user>" \
+        /d:sonar.password="<my-sonar-server-pass>""
 ```
 
 The script above does the following:
