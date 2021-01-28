@@ -32,7 +32,7 @@ This latest image was built with the following components:
 * `21.01.0` [(20.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.01.0/Dockerfile)
   * DotNetCore 3.1.405
   * SonarScanner 5.0.4.24009
-* `20.12.2`, `latest` [(20.12.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.2/Dockerfile)
+* `20.12.2` [(20.12.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.2/Dockerfile)
 * `20.12.1` [(20.12.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.1/Dockerfile)
 * `20.12.0` [(20.12.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/20.12.0/Dockerfile)
   * DotNetCore 2.2.207
