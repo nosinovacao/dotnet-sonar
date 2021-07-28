@@ -19,7 +19,7 @@ This latest image was built with the following components:
 * dotnetcore-runtime 5.0.8 (required by Sonar-Scanner)
 * SonarQube MSBuild Scanner 5.2.2.33595
 * Docker binaries 20.10.x (for running Docker in Docker using the docker.sock mount)
-* OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-SCanner plugins)
+* OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-Scanner plugins)
 * NodeJS 16 (required by Sonar-Scanner web analysis plugins)
 
 ## Supported tags and respective `Dockerfile` links
