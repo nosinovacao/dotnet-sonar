@@ -15,9 +15,9 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This latest image was built with the following components:
 
-* dotnetcore-sdk 5.0.301
-* dotnetcore-runtime 5.0.7 (required by Sonar-Scanner)
-* SonarQube MSBuild Scanner 5.2.1.31210
+* dotnetcore-sdk 5.0.302
+* dotnetcore-runtime 5.0.8 (required by Sonar-Scanner)
+* SonarQube MSBuild Scanner 5.2.2.33595
 * Docker binaries 20.10.x (for running Docker in Docker using the docker.sock mount)
 * OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-SCanner plugins)
 * NodeJS 16 (required by Sonar-Scanner web analysis plugins)
@@ -26,12 +26,14 @@ This latest image was built with the following components:
 
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* `21.06.1`, `latest` [(21.06.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.06.1/Dockerfile)
-  * DotNet 5.0.301
-  * SonarScanner 5.2.1.31210
+* `21.07.1`, `latest` [(21.07.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.07.1/Dockerfile)
+  * DotNet 5.0.302
+  * SonarScanner 5.2.2.33595
+* `21.07.0` [(21.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.07.0/Dockerfile)
+  * DotNetCore 3.1.411
+  * SonarScanner 5.2.2.33595
+* `21.06.1` [(21.06.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.06.1/Dockerfile)
 * `21.06.0` [(21.06.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.06.0/Dockerfile)
-  * DotNetCore 3.1.410
-  * SonarScanner 5.2.1.31210
 * `21.05.1` [(21.05.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.05.1/Dockerfile)
 * `21.05.0` [(21.05.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.05.0/Dockerfile)
 * `21.04.1` [(21.04.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/21.04.1/Dockerfile)
