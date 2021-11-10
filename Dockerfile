@@ -1,14 +1,14 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0.403
+FROM mcr.microsoft.com/dotnet/sdk:6.0.100
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=5.3.2.38712 \
-    DOTNETCORE_SDK=5.0.403 \
-    DOTNETCORE_RUNTIME=5.0.12 \
+    DOTNETCORE_SDK=6.0.100 \
+    DOTNETCORE_RUNTIME=6.0.0 \
     NETAPP_VERSION=net5.0 \
-    DOCKER_VERSION=5:20.10.10~3-0~debian-buster \
+    DOCKER_VERSION=5:20.10.10~3-0~debian-bullseye \
     CONTAINERD_VERSION=1.4.11-1 \
     OPENJDK_VERSION=11 \
     NODEJS_VERSION=16
