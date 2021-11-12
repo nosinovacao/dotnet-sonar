@@ -46,6 +46,13 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
         docker-ce-cli=$DOCKER_VERSION \
         containerd.io=$CONTAINERD_VERSION
 
+# Need to install DotNet5 SDK - Only needed until there's no sonar-scanner with dotNet6 support
+RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && rm packages-microsoft-prod.deb \
+    && apt-get update \
+    && apt-get install -y dotnet-sdk-5.0
+
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
     && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETAPP_VERSION.zip \
