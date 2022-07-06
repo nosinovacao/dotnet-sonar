@@ -1,11 +1,11 @@
 # dotnet-sonar
 
-[![Docker Cloud Status](https://img.shields.io/docker/cloud/automated/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
+<!-- [![Docker Cloud Status](https://img.shields.io/docker/cloud/automated/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
 
-[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=semver)](https://hub.docker.com/r/nosinovacao/dotnet-sonar/tags)
-[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=date)](https://hub.docker.com/r/nosinovacao/dotnet-sonar/tags)
+[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=semver)](https://github.com/nosinovacao/dotnet-sonar/releases/tag)
+[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=date)](https://hub.docker.com/r/nosinovacao/dotnet-sonar/tags) -->
 
 This is a container used to build dotnet projects and provide SonarQube analysis using SonarQube MSBuild Scanner.
 
@@ -15,9 +15,9 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This latest image was built with the following components:
 
-* dotnetcore-sdk 6.0.100
-* dotnetcore-runtime 6.0.0 (required by Sonar-Scanner)
-* SonarQube MSBuild Scanner 5.3.2.38712
+* dotnetcore-sdk 6.0.301
+* dotnetcore-runtime 6.0.6 (required by Sonar-Scanner)
+* SonarQube MSBuild Scanner 5.7.1.49528
 * Docker binaries 20.10.x (for running Docker in Docker using the docker.sock mount)
 * OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-Scanner plugins)
 * NodeJS 16 (required by Sonar-Scanner web analysis plugins)
