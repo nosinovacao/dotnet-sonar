@@ -1,15 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0.100
+FROM mcr.microsoft.com/dotnet/sdk:3.1.420
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
-ENV SONAR_SCANNER_MSBUILD_VERSION=5.3.2.38712 \
-    DOTNETCORE_SDK=6.0.100 \
-    DOTNETCORE_RUNTIME=6.0.0 \
-    NETAPP_VERSION=net5.0 \
-    DOCKER_VERSION=5:20.10.10~3-0~debian-bullseye \
-    CONTAINERD_VERSION=1.4.11-1 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=5.7.1.49528 \
+    DOTNETCORE_SDK=3.1.420 \
+    DOTNETCORE_RUNTIME=3.1.26 \
+    NETCOREAPP_VERSION=netcoreapp3.0 \
+    DOCKER_VERSION=5:20.10.17~3-0~debian-buster \
+    CONTAINERD_VERSION=1.6.6-1 \
     OPENJDK_VERSION=11 \
     NODEJS_VERSION=16
 
@@ -55,9 +55,9 @@ RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod
 
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
-    && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETAPP_VERSION.zip \
-    && unzip sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETAPP_VERSION.zip -d /sonar-scanner \
-    && rm sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETAPP_VERSION.zip \
+    && wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETCOREAPP_VERSION.zip \
+    && unzip sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETCOREAPP_VERSION.zip -d /sonar-scanner \
+    && rm sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-$NETCOREAPP_VERSION.zip \
     && chmod +x -R /sonar-scanner
 
 # Cleanup
