@@ -1,12 +1,12 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0.301
+FROM mcr.microsoft.com/dotnet/sdk:6.0.302
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
-ENV SONAR_SCANNER_MSBUILD_VERSION=5.7.1.49528 \
-    DOTNETCORE_SDK=6.0.301 \
-    DOTNETCORE_RUNTIME=6.0.6 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=5.7.2.50892 \
+    DOTNETCORE_SDK=6.0.302 \
+    DOTNETCORE_RUNTIME=6.0.7 \
     NETAPP_VERSION=net5.0 \
     DOCKER_VERSION=5:20.10.17~3-0~debian-bullseye \
     CONTAINERD_VERSION=1.6.6-1 \
@@ -46,12 +46,6 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
         docker-ce-cli=$DOCKER_VERSION \
         containerd.io=$CONTAINERD_VERSION
 
-# Need to install DotNet5 SDK - Only needed until there's no sonar-scanner with dotNet6 support
-RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
-    && dpkg -i packages-microsoft-prod.deb \
-    && rm packages-microsoft-prod.deb \
-    && apt-get update \
-    && apt-get install -y dotnet-sdk-5.0
 
 # Install Sonar Scanner
 RUN apt-get install -y unzip \
