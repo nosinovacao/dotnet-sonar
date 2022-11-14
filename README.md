@@ -15,8 +15,8 @@ It also allows you to run Docker in Docker using a docker.sock mount.
 
 This latest image was built with the following components:
 
-* dotnetcore-sdk 6.0.402
-* dotnetcore-runtime 6.0.10 (required by Sonar-Scanner)
+* dotnetcore-sdk 7.0
+* dotnetcore-runtime 7.0 (required by Sonar-Scanner)
 * SonarQube MSBuild Scanner 5.8.0.52797
 * Docker binaries 20.10.x (for running Docker in Docker using the docker.sock mount)
 * OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-Scanner plugins)
