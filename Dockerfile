@@ -1,15 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0
+FROM mcr.microsoft.com/dotnet/sdk:6.0.403
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=5.8.0.52797 \
-    DOTNETCORE_SDK=7.0 \
-    DOTNETCORE_RUNTIME=7.0 \
+    DOTNETCORE_SDK=6.0.403 \
+    DOTNETCORE_RUNTIME=6.0.11 \
     NETAPP_VERSION=net5.0 \
-    DOCKER_VERSION=5:20.10.17~3-0~debian-bullseye \
-    CONTAINERD_VERSION=1.6.6-1 \
+    DOCKER_VERSION=5:20.10.21~3-0~debian-bullseye \
+    CONTAINERD_VERSION=1.6.10-1 \
     OPENJDK_VERSION=11 \
     NODEJS_VERSION=16
 
@@ -21,6 +21,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         gnupg-agent \
+        lsb-release \
         software-properties-common
 
 RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1
@@ -34,12 +35,11 @@ RUN wget https://deb.nodesource.com/setup_$NODEJS_VERSION.x \
     && apt-get install -y nodejs
 
 # Install all necessary additional software
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
-    && apt-key fingerprint 0EBFCD88 \
-    && add-apt-repository \
-        "deb [arch=amd64] https://download.docker.com/linux/debian \
-        $(lsb_release -cs) \
-        stable" \
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
+    && echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+        $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
     && apt-get update \
     && apt-get install -y \
         docker-ce=$DOCKER_VERSION \
