@@ -17,7 +17,7 @@ This latest image was built with the following components:
 
 * dotnetcore-sdk 7.0.100
 * dotnetcore-runtime 7.0.0 (required by Sonar-Scanner)
-* SonarQube MSBuild Scanner 5.8.0.52797
+* SonarQube MSBuild Scanner 5.9.0.57893
 * Docker binaries 20.10.x (for running Docker in Docker using the docker.sock mount)
 * OpenJDK Java Runtime 11 (required by Sonar-Scanner and some Sonar-Scanner plugins)
 * NodeJS 16 (required by Sonar-Scanner web analysis plugins)
@@ -26,16 +26,18 @@ This latest image was built with the following components:
 
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* `22.11.4`, `latest7`, `latest` [(22.11.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.11.4/Dockerfile)
+* `22.12.4`, `latest7`, `latest` [(22.12.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.12.4/Dockerfile)
   * DotNet 7.0.100
-  * SonarScanner 5.8.0.52797
-* `22.11.3`, `latest6` [(22.11.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.11.3/Dockerfile)
+  * SonarScanner 5.9.0.57893
+* `22.12.3`, `latest6` [(22.12.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.12.3/Dockerfile)
   * DotNet 6.0.402
-  * SonarScanner 5.8.0.52797
+  * SonarScanner 5.9.0.57893
 > :warning: **[(THIS VERSION HAS REACHED END OF LIFE)](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)**
 * `22.07.1`, `latest5` [(22.07.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.07.1/Dockerfile)
   * DotNet 5.0.408
   * SonarScanner 5.7.1.49528
+* `22.11.4` [(22.11.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.11.4/Dockerfile)
+* `22.11.3` [(22.11.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.11.3/Dockerfile)
 * `22.10.3` [(22.10.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.10.3/Dockerfile)
 * `22.07.3` [(22.07.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.07.3/Dockerfile)
 * `22.07.0`, `latest31` [(22.07.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.07.0/Dockerfile)
