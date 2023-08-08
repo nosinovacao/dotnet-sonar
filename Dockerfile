@@ -1,16 +1,16 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0.302
+FROM mcr.microsoft.com/dotnet/sdk:6.0.412
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=5.13.0.66756 \
-    DOTNETCORE_SDK=7.0.302 \
-    DOTNETCORE_RUNTIME=7.0.5 \
+    DOTNETCORE_SDK=6.0.412 \
+    DOTNETCORE_RUNTIME=6.0.20 \
     NETAPP_VERSION=net5.0 \
     DOCKER_VERSION=5:20.10.21~3-0~debian-bullseye \
     CONTAINERD_VERSION=1.6.10-1 \
-    OPENJDK_VERSION=11 \
+    OPENJDK_VERSION=17 \
     NODEJS_VERSION=16
 
 # Linux update
@@ -18,6 +18,7 @@ RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install -y \
         apt-transport-https \
+        ca-certificates-java \
         ca-certificates \
         curl \
         gnupg-agent \
