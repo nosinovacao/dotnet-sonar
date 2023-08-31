@@ -21,6 +21,7 @@ RUN apt-get update \
         ca-certificates-java \
         ca-certificates \
         curl \
+        locales \
         gnupg-agent \
         lsb-release \
         software-properties-common
@@ -28,7 +29,9 @@ RUN apt-get update \
 RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1
 
 # Set locale to UTF-8
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+# The locale-gen must be run first to create config files
+RUN locale-gen && \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
