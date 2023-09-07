@@ -1,12 +1,5 @@
 # dotnet-sonar
 
-<!-- [![Docker Cloud Status](https://img.shields.io/docker/cloud/automated/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
-[![Docker Pulls](https://img.shields.io/docker/pulls/nosinovacao/dotnet-sonar.svg)](https://hub.docker.com/r/nosinovacao/dotnet-sonar)
-
-[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=semver)](https://github.com/nosinovacao/dotnet-sonar/releases/tag)
-[![Docker Pulls](https://img.shields.io/docker/v/nosinovacao/dotnet-sonar?sort=date)](https://hub.docker.com/r/nosinovacao/dotnet-sonar/tags) -->
-
 This is a container used to build dotnet projects and provide SonarQube analysis using SonarQube MSBuild Scanner.
 
 It also allows you to run Docker in Docker using a docker.sock mount.
@@ -85,8 +78,6 @@ This latest image was built with the following components:
 * `18.03.0` [(18.03.0/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/18.03.0/Dockerfile)
 * `2-4.0.2` [(2-4.0.2/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/2-4.0.2/Dockerfile)
 
-More info on docker hub: <https://hub.docker.com/r/nosinovacao/dotnet-sonar/>
-
 ## Compiling dotnet code with SonarQube Analysis
 
 Full documentation: <https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+MSBuild>
@@ -115,7 +106,7 @@ $ dotnet /sonar-scanner/SonarScanner.MSBuild.dll end  /d:sonar.login="<SonarQube
 
 Simple Usage:
 ```bash
-$ docker run -it --rm -v <my-project-source-path>:/source nosinovacao/dotnet-sonar:latest bash -c "cd source \
+$ docker run -it --rm -v <my-project-source-path>:/source ghcr.io/nosinovacao/dotnet-sonar:latest bash -c "cd source \
     && dotnet /sonar-scanner/SonarScanner.MSBuild.dll begin /k:sonarProjectKey /name:sonarProjectName /version:buildVersion \
     && dotnet restore \
     && dotnet build -c Release \
@@ -179,7 +170,7 @@ node('somenode-with-docker')
 {
     withSonarQubeEnv('my-jenkins-configured-sonar-environment')
     {
-        docker.image('nosinovacao/dotnet-sonar:latest').inside()
+        docker.image('ghcr.io/nosinovacao/dotnet-sonar:latest').inside()
         {
             withEnv(envVariables)
             {
@@ -217,7 +208,7 @@ Please note that if you want to use Docker inside Docker (DinD) you need to perf
 **The following actions will expose your host to several security vulnerabilities** and therefore this should only be used when you absolutely must to:
 
 ```groovy
-docker.image('nosinovacao/dotnet-sonar:latest').inside("--group-add docker -v /var/run/docker.sock:/var/run/docker.sock")
+docker.image('ghcr.io/nosinovacao/dotnet-sonar:latest').inside("--group-add docker -v /var/run/docker.sock:/var/run/docker.sock")
 {
     // Some stuff
     docker.image.('hello-world:latest').inside()
