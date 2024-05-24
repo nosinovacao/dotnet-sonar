@@ -22,16 +22,18 @@ This latest image was built with the following components:
 * `24.02.5`, `latest8`, `latest`, `24.02-dotnet8` [(24.02.5/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.02.5/Dockerfile)
   * DotNet 8.0.201
   * SonarScanner 6.2.0.85879
-* `24.02.4`, `latest7`, `24.02-dotnet7` [(24.02.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.02.4/Dockerfile)
-  * DotNet 7.0.406
-  * SonarScanner 6.2.0.85879
 * `24.05.3`, `latest6`, `24.05-dotnet6` [(24.05.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.05.3/Dockerfile)
   * DotNet 6.0.422
+  * SonarScanner 6.2.0.85879
+> :warning: **[(THIS VERSION HAS REACHED END OF LIFE)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)**
+* `24.05.4`, `latest7`, `24.05-dotnet7` [(24.05.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.05.4/Dockerfile)
+  * DotNet 7.0.409
   * SonarScanner 6.2.0.85879
 > :warning: **[(THIS VERSION HAS REACHED END OF LIFE)](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)**
 * `22.07.1`, `latest5` [(22.07.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.07.1/Dockerfile)
   * DotNet 5.0.408
   * SonarScanner 5.7.1.49528
+* `24.02.4` [(24.02.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.02.4/Dockerfile)
 * `24.02.3` [(24.02.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.02.3/Dockerfile)
 * `24.01.5` [(24.01.5/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.01.5/Dockerfile)
 * `24.01.4` [(24.01.4/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.01.4/Dockerfile)
