@@ -12,6 +12,7 @@ This latest image was built with the following components:
 * dotnetcore-runtime 8.0.7 (required by Sonar-Scanner)
 * SonarQube MSBuild Scanner 7.1.1.96069
 * Docker binaries 24.0.x (for running Docker in Docker using the docker.sock mount)
+* OpenJDK Java Runtime 17 (required by Sonar-Scanner and some Sonar-Scanner plugins)
 * NodeJS 20 (required by Sonar-Scanner web analysis plugins)
 
 ## Supported tags and respective `Dockerfile` links
@@ -21,7 +22,7 @@ This latest image was built with the following components:
 * `24.07.5`, `latest8`, `latest`, `24.07-dotnet8` [(24.07.5/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.07.5/Dockerfile)
   * DotNet 8.0.303
   * SonarScanner 7.1.1.96069
-* `24.07.3`, `latest6`, `24.07-dotnet6` [(24.07.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.07.3/Dockerfile)
+* `24.08.3`, `latest6`, `24.08-dotnet6` [(24.08.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.08.3/Dockerfile)
   * DotNet 6.0.424
   * SonarScanner 7.1.1.96069
 > :warning: **[(THIS VERSION HAS REACHED END OF LIFE)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)**
@@ -32,6 +33,7 @@ This latest image was built with the following components:
 * `22.07.1`, `latest5` [(22.07.1/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/22.07.1/Dockerfile)
   * DotNet 5.0.408
   * SonarScanner 5.7.1.49528
+* `24.07.3` [(24.07.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.07.3/Dockerfile)
 * `24.06.5` [(24.06.5/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.06.5/Dockerfile)
 * `24.06.3` [(24.06.3/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.06.3/Dockerfile)
 * `24.05.5` [(24.05.5/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/24.05.5/Dockerfile)

@@ -1,15 +1,16 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0.303
+FROM mcr.microsoft.com/dotnet/sdk:6.0.424
 
 # Dockerfile meta-information
 LABEL maintainer="NOS Inovação S.A." \
     app_name="dotnet-sonar"
 
 ENV SONAR_SCANNER_MSBUILD_VERSION=7.1.1.96069 \
-    DOTNETCORE_SDK=8.0.303 \
-    DOTNETCORE_RUNTIME=8.0.7 \
+    DOTNETCORE_SDK=6.0.424 \
+    DOTNETCORE_RUNTIME=6.0.32 \
     NETAPP_VERSION=net \
-    DOCKER_VERSION=5:24.0.7-1~debian.12~bookworm \
+    DOCKER_VERSION=5:24.0.7-1~debian.11~bullseye \
     CONTAINERD_VERSION=1.6.25-1 \
+    OPENJDK_VERSION=17 \
     NODEJS_VERSION=20
 
 # Linux update
@@ -17,6 +18,7 @@ RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install -y \
         apt-transport-https \
+        ca-certificates-java \
         ca-certificates \
         curl \
         locales \
@@ -34,6 +36,9 @@ RUN locale-gen && \
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
+
+# Install Java
+RUN apt-get install -y openjdk-$OPENJDK_VERSION-jre
 
 # Install NodeJs
 RUN wget https://deb.nodesource.com/setup_$NODEJS_VERSION.x \
