@@ -19,7 +19,7 @@ This latest image was built with the following components:
 
 > Tags are written using the following pattern: `dotnet-sonar:<year>.<month>.<revision>`
 
-* `25.11.7`, `latest10`, `25.11-dotnet10`, `latest`, [(25.11.7/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/25.11.7/Dockerfile)
+* `25.11.7`, `latest10`, `25.11-dotnet10`, `latest` [(25.11.7/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/25.11.7/Dockerfile)
   * DotNet 10.0.100
   * SonarScanner 11.0.0.126294
 * `25.11.6`, `latest9`, `25.11-dotnet9` [(25.11.6/Dockerfile)](https://github.com/nosinovacao/dotnet-sonar/blob/25.11.6/Dockerfile)
